@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
+import Input from "./Input";
+import List from "./List"
 
-import Page from './Page';
+
 
 export default function App() {
-    const [state, setState] = useState({
-        count: 0,
-    });
 
-    const { count } = state;
-
-    const handlerClick = (number) => {
-        setState({ count: count + number });
-    };
+    function onClick(){
+        //할일추ㅣ
+    }
+    const tasks =[{id:1,title:'noting to do'},{id:2,title:'noting to do'}]
 
     return (
-        <Page
-            count={count}
-            onClick={handlerClick}
-        />
+       <div>
+           <h1>To-Do</h1>
+           <Input onClick={onClick}/>
+           <List tasks={tasks}/>
+       </div>
+
     );
 }
