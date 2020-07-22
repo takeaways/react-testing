@@ -1,44 +1,61 @@
-import React, { useState } from 'react';
-import Page from "./Page"
+import React from 'react';
+import {useDispatch, useSelector} from "react-redux";
+
+import Page from "./Page";
+
+function updateTaskTitle(taskTitle) {
+
+    return {
+        type: 'updateTaskTitle',
+        payload: {
+            taskTitle
+        }
+    }
+}
+
+function addTask() {
+    return {
+        type: 'addTask'
+    }
+}
+
+function deleteTask(id) {
+    return {
+        type: 'deleteTask',
+        payload: {
+            id
+        }
+    }
+}
 
 export default function App() {
-    const [state, setState] = useState({
-        newId:100,
-        taskTitle:'',
-        tasks:[{id:1,title:'noting1'},{id:2,title:'noting2'}]
-    })
 
-    const {tasks,newId, taskTitle} = state;
+    const dispatch = useDispatch();
 
-    function handleClickAddTask(){
-        setState({
-            newId: newId+1,
-            taskTitle: '',
-            tasks: [...tasks, {id:newId, title: taskTitle}]
-        })
+    const {tasks, taskTitle} = useSelector(state => ({
+        tasks: state.tasks,
+        taskTitle: state.taskTitle
+    }));
+
+    function handleClickAddTask() {
+        dispatch(addTask())
     }
 
-    function handleChangeTitle(event){
-        setState({
-            ...state,
-            taskTitle: event.target.value
-        })
+    function handleChangeTitle(event) {
+        dispatch(updateTaskTitle(event.target.value));
     }
 
-    function handleClickDeleteTask(id){
-        setState({
-            ...state,
-            tasks: tasks.filter(task => task.id !==id)
-        })
+    function handleClickDeleteTask(id) {
+        dispatch(deleteTask(id))
     }
 
     return (
-      <Page
-          tasks={tasks}
-          taskTitle={taskTitle}
-          onClick={handleClickAddTask}
-          onChange={handleChangeTitle}
-          onClickDeleteTask={handleClickDeleteTask}
-      />
+        <Page
+            tasks={tasks}
+            taskTitle={taskTitle}
+            onClick={handleClickAddTask}
+            onChange={handleChangeTitle}
+            onClickDeleteTask={handleClickDeleteTask}
+        />
     );
 }

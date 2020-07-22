@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "test": "jest --watchAll --coverage",
-    "test-log":"jest --watchAll --verbose"
+    "test-log": "jest --watchAll --verbose"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,8 @@
   },
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5"
   }
 }
