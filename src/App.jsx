@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
-import Input from "./Input";
-import List from "./List"
-
-
+import Page from "./Page"
 
 export default function App() {
+    const [state, setState] = useState({
+        newId:100,
+        taskTitle:'',
+        tasks:[{id:1,title:'noting to do'},{id:2,title:'noting to do'}]
+    })
 
-    function onClick(){
-        //할일추ㅣ
+    const {tasks,newId, taskTitle} = state;
+
+    function handleClickAddTask(){
+        setState({
+            newId: newId+1,
+            taskTitle: '',
+            tasks: [...tasks, {id:newId, title: taskTitle}]
+        })
     }
-    const tasks =[{id:1,title:'noting to do'},{id:2,title:'noting to do'}]
+
+    function handleChangeTitle(event){
+        setState({
+            ...state,
+            taskTitle: event.target.value
+        })
+    }
 
     return (
-       <div>
-           <h1>To-Do</h1>
-           <Input onClick={onClick}/>
-           <List tasks={tasks}/>
-       </div>
-
+      <Page tasks={tasks} taskTitle={taskTitle} onClick={handleClickAddTask} onChange={handleChangeTitle}/>
     );
 }
