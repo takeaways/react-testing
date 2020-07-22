@@ -72,6 +72,7 @@
     ```bash
     $npm i -D jest @types/jest babel-jest
     $npm i -D @testing-library/react @testing-library/jest-dom
+    $npm i -D jest-plugin-context
     ```
 
 ### Assertion

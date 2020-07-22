@@ -13,15 +13,13 @@ describe('List', () => {
                 onClickDeleteTask={handleClickDeleteTask}
             />
         ));
-
     }
 
 
-    describe('with tasks', ()=>{
+    context('with tasks', ()=>{
 
         it('render tasks', () => {
             const tasks = [{id: 1, title: 'nothing1'}, {id: 2, title: 'nothing2'}];
-
 
             const {getByText} = renderList(tasks)
 
@@ -31,8 +29,6 @@ describe('List', () => {
 
         it('render Delete buttons and Click Remove Task', () => {
             const tasks = [{id: 1, title: 'nothing1'}, {id: 2, title: 'nothing2'}];
-            const handleClickDeleteTask = jest.fn();
-
             const {getByText, getAllByText} = renderList(tasks)
 
             expect(getByText(/nothing1/)).not.toBeNull();
@@ -43,10 +39,9 @@ describe('List', () => {
 
             expect(handleClickDeleteTask).toBeCalledWith(1);
         })
-
     })
 
-    describe('without tasks',()=>{
+    context('without tasks',()=>{
         it('render no task message', () => {
             const tasks = [];
             const handleClickDeleteTask = jest.fn();
@@ -56,9 +51,5 @@ describe('List', () => {
             expect(getByText(/no tasks/)).not.toBeNull();
         })
     })
-
-
-
-
 });
 
