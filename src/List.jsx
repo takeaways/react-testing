@@ -1,6 +1,12 @@
 import React from "react";
 import Item from "./Item"
-export default function Input({tasks=[], onClickDeleteTask}){
+
+export default function Input({tasks = [], onClickDeleteTask}) {
+
+    if (tasks.length === 0) {
+        return (<p>no tasks</p>)
+    }
+
     return (
         <div>
             <ul>
