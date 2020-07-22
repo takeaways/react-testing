@@ -71,6 +71,7 @@
 - jest install
     ```bash
     $npm i -D jest @types/jest babel-jest
+    $npm i -D @testing-library/react @testing-library/jest-dom
     ```
 ### Assertion
 단정문이라고 부르는 Assertion은 우리가 기대하는 값이 실제 값이랑 일치하는지 확인하는데 사용합니다. 자바스크립트의 console.assert는 우리가 기대하는 값이 아니면 콘솔에 출력되도록하여 프로그래머가 원하는 값이 아닌 경우 즉각적으로 알 수 있도록 도와줍니다. 테스트에도 단정문을 사용하여 우리가 원하는 값이 맞는지 계속해서 피드백을 얻을 수 있습니다.
