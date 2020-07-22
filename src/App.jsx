@@ -5,7 +5,7 @@ export default function App() {
     const [state, setState] = useState({
         newId:100,
         taskTitle:'',
-        tasks:[{id:1,title:'noting to do'},{id:2,title:'noting to do'}]
+        tasks:[{id:1,title:'noting1'},{id:2,title:'noting2'}]
     })
 
     const {tasks,newId, taskTitle} = state;

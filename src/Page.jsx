@@ -4,7 +4,6 @@ import List from "./List"
 
 
 export default function Page({onClick, tasks, taskTitle, onChange, onClickDeleteTask}) {
-
     return (
         <div>
             <h1>To-Do</h1>
