@@ -1,7 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
+import App from './App';
 
-const e = (<h1>Hello</h1>)
-
-ReactDOM.render(e, document.querySelector("#app"));
+ReactDOM.render(
+    <App />,
+    document.getElementById('app'),
+);
