@@ -27,7 +27,9 @@
     ```
 - babel.config.js
     ```javascript
+    const path = require("path");
     module.exports = {
+        entry: path.resolve(__dirname,'src/index.jsx'),
         module: {
             rules: [{
                 test:/\.jsx?$/,
@@ -48,7 +50,7 @@
     $npm start
     ```
     ```html
-    # src/index.js // webpack의 기본 설정으로 main.js로 파일이 추가 됩니다.
+    # src/index.jsx // webpack의 기본 설정으로 main.js로 파일이 추가 됩니다.
     # index.html
     <script src="main.js" defer><script>
     ```
