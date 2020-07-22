@@ -3,7 +3,7 @@ import Input from "./Input";
 import List from "./List"
 
 
-export default function Page({onClick, tasks, taskTitle, onChange}) {
+export default function Page({onClick, tasks, taskTitle, onChange, onClickDeleteTask}) {
 
     return (
         <div>
@@ -12,7 +12,7 @@ export default function Page({onClick, tasks, taskTitle, onChange}) {
                 onClick={onClick}
                 onChange={onChange}
                 value={taskTitle}/>
-            <List tasks={tasks}/>
+            <List tasks={tasks} onClickDeleteTask={onClickDeleteTask}/>
         </div>
 
     );

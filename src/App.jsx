@@ -25,7 +25,20 @@ export default function App() {
         })
     }
 
+    function handleClickDeleteTask(id){
+        setState({
+            ...state,
+            tasks: tasks.filter(task => task.id !==id)
+        })
+    }
+
     return (
-      <Page tasks={tasks} taskTitle={taskTitle} onClick={handleClickAddTask} onChange={handleChangeTitle}/>
+      <Page
+          tasks={tasks}
+          taskTitle={taskTitle}
+          onClick={handleClickAddTask}
+          onChange={handleChangeTitle}
+          onClickDeleteTask={handleClickDeleteTask}
+      />
     );
 }
