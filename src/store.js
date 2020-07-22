@@ -4,7 +4,7 @@ import {createStore} from "redux";
 const initialState = {
     newId: 100,
     taskTitle: '',
-    tasks: [{id: 1, title: 'noting1'}, {id: 2, title: 'noting2'}]
+    tasks: []
 }
 
 
