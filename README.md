@@ -82,3 +82,44 @@
 
 ### Testing Libray 
 - render를 사용하여 컴포넌트를 구성하면 DOM이 반환이 된다.
+- jest.config.js 
+    ```javascript
+    module.exports = {
+        setupFilesAfterEnv:[
+            './jest.setup' //기본으로 추가 시켜줄 파일을 설정할 수 있다.
+        ]
+    }
+    ```
+- jest.setup.js 
+    ```javascript
+    import "@testing-library/jest-dom"
+    ```
+- 사용 예시
+    ```jsx
+    import React from "react";
+    import {render, fireEvent} from '@testing-library/react';
+
+    import Item from "./Item";
+
+    test('Item', () => {
+        const task = {
+            id: 1,
+            title: 'Hello'
+        }
+        const onClickDeleteTask = jest.fn();
+        const {container, getByText} = render(
+            <Item 
+                task={task} 
+                onClickDeleteTask={onClickDeleteTask}
+            />)
+
+        expect(container).toHaveTextContent("Hello")
+        expect(container).toHaveTextContent("Delete")
+
+        expect(onClickDeleteTask).not.toBeCalled();
+        fireEvent.click(getByText("Delete"))
+        expect(onClickDeleteTask).toBeCalledWith(1);
+
+
+    })
+    ```
