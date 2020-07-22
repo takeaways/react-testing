@@ -4,7 +4,8 @@
   "description": "React testing",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "test": "jest --watchAll --coverage"
   },
   "repository": {
     "type": "git",
