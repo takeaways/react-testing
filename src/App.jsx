@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { setRestaurants } from './actions';
 
 import RestaurantsContainer from './RestaurantsContainer';
-import RestaurantsCreateContainer from './RestaurantsCreateContainer';
+import RestaurantsForm from './RestaurantsForm';
 
 import restaurants from '../fixtures/restaurants';
 
@@ -19,7 +19,7 @@ export default function App() {
     <div>
       <h1>restaurants</h1>
       <RestaurantsContainer />
-      <RestaurantsCreateContainer />
+      <RestaurantsForm />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function RestaurantsCreateContainer() {
+export default function RestaurantsForm() {
   return (
     <form>
       <p>
