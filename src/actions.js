@@ -49,7 +49,6 @@ export function loadInitialData() {
 }
 
 export function loadRestaurants() {
-  console.log('loadRestaurants');
   return async (dispatch, getState) => {
     const { selectedRegion, selectedCategory } = getState();
 
