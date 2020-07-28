@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectRegion } from './actions';
+import { selectRegion, loadRestaurants } from './actions';
 import { get } from './utils';
 
 export default function RegionsContainer() {
@@ -10,6 +10,7 @@ export default function RegionsContainer() {
 
   const handleClick = (id) => {
     dispatch(selectRegion(id));
+    dispatch(loadRestaurants());
   };
   return (
     <section>
