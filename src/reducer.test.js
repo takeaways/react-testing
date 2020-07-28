@@ -4,7 +4,6 @@ import {
   setCategories,
   selectRegion,
   selectCategory,
-  loadRestaurants,
   setRestauratns,
 } from './actions';
 
@@ -70,11 +69,13 @@ describe('reducer', () => {
       };
       const restaurants = [{ id: 1, name: '마법사주방' }];
 
-      const state = reducer(initialState, setRestauratns());
-      expect(state.selectedCategory).toEqual({
-        id: 1,
-        name: '한식',
-      });
+      const state = reducer(initialState, setRestauratns(restaurants));
+      expect(state.restaurants).toEqual([
+        {
+          id: 1,
+          name: '마법사주방',
+        },
+      ]);
     });
   });
 });

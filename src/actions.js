@@ -49,8 +49,19 @@ export function loadInitialData() {
 }
 
 export function loadRestaurants() {
-  return async (dispatch) => {
-    const restaurants = await fetchRestaurants();
+  console.log('loadRestaurants');
+  return async (dispatch, getState) => {
+    const { selectedRegion, selectedCategory } = getState();
+
+    if (!selectedRegion || !selectedCategory) {
+      return;
+    }
+    const restaurants = await fetchRestaurants({
+      regionName: selectedRegion.name,
+      categoryId: selectedCategory.id,
+    });
+
+    console.log(restaurants);
     dispatch(setRestauratns(restaurants));
   };
 }

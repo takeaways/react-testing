@@ -9,8 +9,10 @@ export async function fetchCategories() {
   return response.json();
 }
 
-export async function fetchRestaurants() {
-  const url = `https://eatgo-customer-api.ahastudio.com/restaurants`;
+export async function fetchRestaurants({ regionName, categoryId }) {
+  console.log({ regionName, categoryId });
+  const url = `https://eatgo-customer-api.ahastudio.com/restaurants?region=${regionName}&category=${categoryId}`;
   const response = await fetch(url);
+  console.log(response);
   return response.json();
 }

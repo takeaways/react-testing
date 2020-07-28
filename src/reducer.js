@@ -37,6 +37,13 @@ const reducers = {
       selectedCategory: categories.find((category) => category.id === id),
     };
   },
+  setRestauratns(state, action) {
+    const { restaurants } = action.payload;
+    return {
+      ...state,
+      restaurants,
+    };
+  },
 };
 
 function defaultReducer(state) {
