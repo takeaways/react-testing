@@ -220,3 +220,14 @@ store는 리덕스의 상태값을 갖는 객체입니다. 액션의 발생은 s
   ```bash
   $npm i react-router-dom
   ```
+
+### Authorization 헤더
+
+HTTP Authorization 요청 헤더는 유저 에이전트에서 서버에 인증정보를 전달하기 위해 사용됩니다.
+
+Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
+서버에 type과 credentials을 전달해야 하는데 강의에서는 Bearer 타입을 사용하고 있습니다.
+
+### LocalStorage
+
+LocalStorage는 브라우저에 데이터를 저장하기 위해 사용됩니다. localStorage는 저장된 데이터의 만료기간이 없고, key와 value는 항상 문자열로 저장됩니다.
