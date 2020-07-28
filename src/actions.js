@@ -1,4 +1,4 @@
-import { fetchCategories, fetchRegions } from '';
+import { fetchCategories, fetchRegions } from './services/api';
 
 export function setRegions(regions) {
   return {
@@ -10,6 +10,13 @@ export function setCategories(categories) {
   return {
     type: 'setCategories',
     payload: { categories },
+  };
+}
+
+export function selectRegion(id) {
+  return {
+    type: 'selectRegion',
+    payload: { id },
   };
 }
 

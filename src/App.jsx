@@ -8,9 +8,7 @@ import { loadInitialData } from './actions';
 //2. select categories
 //3. show list of restaurant with location and categories
 
-function RegionsContainer() {
-  return null;
-}
+import RegionsContainer from './RegionsContainer';
 function CategoriesContainer() {
   return null;
 }
