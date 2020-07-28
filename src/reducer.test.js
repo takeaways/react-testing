@@ -1,16 +1,28 @@
 import reducer from './reducer';
-
-import { setRestaurants } from './actions';
-import restaurants from '../fixtures/restaurants';
+import { setRegions, setCategories } from './actions';
 
 describe('reducer', () => {
-  describe('setRestaurants', () => {
-    it('change restaurants array', () => {
+  describe('setRegions', () => {
+    it('changes regions', () => {
       const initialState = {
-        restaurants: [],
+        regions: [],
       };
-      const nextState = reducer(initialState, setRestaurants(restaurants));
-      expect(nextState.restaurants).not.toHaveLength(0);
+      const regions = [{ id: 1, name: '서울' }];
+      const state = reducer(initialState, setRegions(regions));
+
+      expect(state.regions).toHaveLength(1);
+    });
+  });
+
+  describe('setCategories', () => {
+    it('change categories', () => {
+      const initialState = {
+        categories: [],
+      };
+      const categories = [{ id: 1, name: '분식' }];
+      const state = reducer(initialState, setCategories(categories));
+
+      expect(state.categories).toHaveLength(1);
     });
   });
 });
