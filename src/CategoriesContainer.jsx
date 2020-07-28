@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCategory } from './actions';
+import { get } from './utils';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
-  const { categories, selectedCategory } = useSelector((state) => ({
-    categories: state.categories,
-    selectedCategory: state.selectedCategory,
-  }));
+
+  const categories = useSelector(get('categories'));
+  const selectedCategory = useSelector(get('selectedCategory'));
+
   const handleClick = (id) => {
     dispatch(selectCategory(id));
   };
