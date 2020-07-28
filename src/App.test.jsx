@@ -1,10 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import { useDispatch, useSelector } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 
 import App from './App';
-import { useDispatch, useSelector } from 'react-redux';
 describe('App', () => {
-  it('render App somthing with', () => {
+  beforeEach(() => {
     const dispatch = jest.fn();
     useDispatch.mockImplementation(() => dispatch);
     useSelector.mockImplementation((selector) =>
@@ -12,9 +13,38 @@ describe('App', () => {
         regions: [{ id: 1, name: '서울' }],
       })
     );
+  });
 
-    const { getByText } = render(<App />);
+  context('with path /', () => {
+    it('redners HomePage', () => {
+      const { getByText } = render(
+        <MemoryRouter initialEntries={['/']}>
+          <App />
+        </MemoryRouter>
+      );
+      expect(getByText(/HomePage/)).not.toBeNull();
+    });
+  });
 
-    expect(dispatch).toBeCalled();
+  context('with path /about', () => {
+    it('redners HomePage', () => {
+      const { getByText } = render(
+        <MemoryRouter initialEntries={['/about']}>
+          <App />
+        </MemoryRouter>
+      );
+      expect(getByText(/About.../)).not.toBeNull();
+    });
+  });
+
+  context('with path /restaurants', () => {
+    it('redners HomePage', () => {
+      const { getByText } = render(
+        <MemoryRouter initialEntries={['/restaurants']}>
+          <App />
+        </MemoryRouter>
+      );
+      expect(getByText(/서울/)).not.toBeNull();
+    });
   });
 });
