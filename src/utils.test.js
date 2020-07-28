@@ -1,5 +1,4 @@
 import { get } from './utils';
-
 test('get', () => {
   const state = {
     name: 'gi',
