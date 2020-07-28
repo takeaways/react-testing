@@ -64,3 +64,11 @@ export function loadRestaurants() {
     dispatch(setRestauratns(restaurants));
   };
 }
+
+export function requestLogin() {
+  return async (dispatch, getState) => {
+    //state email, password
+    //http post <- email. password
+    //dispatch(setAccessToken)
+  };
+}
