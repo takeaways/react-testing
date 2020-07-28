@@ -1,4 +1,8 @@
-import { fetchCategories, fetchRegions } from './services/api';
+import {
+  fetchCategories,
+  fetchRegions,
+  fetchRestaurants,
+} from './services/api';
 
 export function setRegions(regions) {
   return {
@@ -27,6 +31,13 @@ export function selectCategory(id) {
   };
 }
 
+export function setRestauratns(restaurants) {
+  return {
+    type: 'setRestauratns',
+    payload: { restaurants },
+  };
+}
+
 export function loadInitialData() {
   return async (dispatch) => {
     const regions = await fetchRegions();
@@ -34,5 +45,12 @@ export function loadInitialData() {
 
     const categories = await fetchCategories();
     dispatch(setCategories(categories));
+  };
+}
+
+export function loadRestaurants() {
+  return async (dispatch) => {
+    const restaurants = await fetchRestaurants();
+    dispatch(setRestauratns(restaurants));
   };
 }

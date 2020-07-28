@@ -4,6 +4,8 @@ import {
   setCategories,
   selectRegion,
   selectCategory,
+  loadRestaurants,
+  setRestauratns,
 } from './actions';
 
 describe('reducer', () => {
@@ -54,6 +56,21 @@ describe('reducer', () => {
       };
 
       const state = reducer(initialState, selectCategory(1));
+      expect(state.selectedCategory).toEqual({
+        id: 1,
+        name: '한식',
+      });
+    });
+  });
+
+  describe('setRestaurants', () => {
+    it('change restaurants', () => {
+      const initialState = {
+        restaurants: [],
+      };
+      const restaurants = [{ id: 1, name: '마법사주방' }];
+
+      const state = reducer(initialState, setRestauratns());
       expect(state.selectedCategory).toEqual({
         id: 1,
         name: '한식',

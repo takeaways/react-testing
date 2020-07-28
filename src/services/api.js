@@ -8,3 +8,9 @@ export async function fetchCategories() {
   const response = await fetch(url);
   return response.json();
 }
+
+export async function fetchRestaurants() {
+  const url = `https://eatgo-customer-api.ahastudio.com/restaurants`;
+  const response = await fetch(url);
+  return response.json();
+}
