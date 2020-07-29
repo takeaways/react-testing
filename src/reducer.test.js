@@ -5,6 +5,8 @@ import {
   selectRegion,
   selectCategory,
   setRestauratns,
+  changeLoginField,
+  setAccessToken,
 } from './actions';
 
 describe('reducer', () => {
@@ -76,6 +78,34 @@ describe('reducer', () => {
           name: '마법사주방',
         },
       ]);
+    });
+  });
+
+  describe('changeLoginFields', () => {
+    it('change changeLoginFields', () => {
+      const initialState = {
+        loginFields: {
+          email: '',
+          password: '',
+        },
+      };
+
+      const state = reducer(
+        initialState,
+        changeLoginField({ name: 'email', value: 'test' })
+      );
+
+      expect(state.loginFields.email).toBe('test');
+    });
+  });
+
+  describe('setAccessToken', () => {
+    it('change AccessToken', () => {
+      const initialState = {
+        accessToken: '',
+      };
+      const state = reducer(initialState, setAccessToken('TOKEN'));
+      expect(state.accessToken).toBe('TOKEN');
     });
   });
 });

@@ -8,6 +8,7 @@ const initialState = {
     email: '',
     password: '',
   },
+  accessToken: '',
 };
 
 const reducers = {
@@ -46,6 +47,21 @@ const reducers = {
     return {
       ...state,
       restaurants,
+    };
+  },
+  changeLoginField(state, { payload: { name, value } }) {
+    return {
+      ...state,
+      loginFields: {
+        ...state.loginFields,
+        [name]: value,
+      },
+    };
+  },
+  setAccessToken(state, { payload: { accessToken } }) {
+    return {
+      ...state,
+      accessToken,
     };
   },
 };
