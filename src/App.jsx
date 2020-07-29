@@ -5,6 +5,7 @@ import RestaurantsPage from './RestaurantsPage';
 import HomePage from './HomePage';
 import AbountPage from './AboutPage';
 import NotFoundPage from './NotFoundPage';
+import LoginPage from './LoginPage';
 export default function App() {
   return (
     <>
@@ -18,7 +19,7 @@ export default function App() {
             <Link to='/restaurants'>Restaurants</Link>
           </li>
           <li>
-            <Link to='/d'>t</Link>
+            <Link to='/login'>Log In</Link>
           </li>
         </ul>
       </nav>
@@ -26,6 +27,7 @@ export default function App() {
         <Route exact path='/' component={HomePage} />
         <Route exact path='/about' component={AbountPage} />
         <Route exact path='/restaurants' component={RestaurantsPage} />
+        <Route exact path='/login' component={LoginPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </>

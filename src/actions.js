@@ -65,6 +65,16 @@ export function loadRestaurants() {
   };
 }
 
+export function changeLoginField({ name, value }) {
+  return {
+    type: 'changeLoginField',
+    payload: {
+      name,
+      value,
+    },
+  };
+}
+
 export function requestLogin() {
   return async (dispatch, getState) => {
     //state email, password

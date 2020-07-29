@@ -4,6 +4,10 @@ const initialState = {
   restaurants: [],
   selectedRegion: null,
   selectedCategory: null,
+  loginFields: {
+    email: '',
+    password: '',
+  },
 };
 
 const reducers = {

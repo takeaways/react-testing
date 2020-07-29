@@ -2,7 +2,7 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { render, fireEvent } from '@testing-library/react';
 import LoginFormContainer from './LoginFormContainer';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 describe('LoginFormContainer', () => {
   const dispatch = jest.fn();
@@ -10,6 +10,14 @@ describe('LoginFormContainer', () => {
   beforeEach(() => {
     dispatch.mockClear();
     useDispatch.mockImplementation(() => dispatch);
+    useSelector.mockImplementation((selector) =>
+      selector({
+        loginFields: {
+          email: 'test@test',
+          password: '1234',
+        },
+      })
+    );
   });
 
   it('render input contents', () => {
@@ -19,8 +27,8 @@ describe('LoginFormContainer', () => {
       </MemoryRouter>
     );
 
-    expect(getByLabelText('Email')).not.toBeNull();
-    expect(getByLabelText('Password')).not.toBeNull();
+    expect(getByLabelText('Email').value).toBe('test@test');
+    expect(getByLabelText('Password').value).toBe('1234');
   });
 
   it('render "Log In" Button ', () => {
