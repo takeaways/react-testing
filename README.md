@@ -223,6 +223,9 @@ store는 리덕스의 상태값을 갖는 객체입니다. 액션의 발생은 s
 
 ### Authorization 헤더
 
+- 1. Authentication (인증) [ email, password ]
+- 2. Authorization (인가) [what to do]
+
 HTTP Authorization 요청 헤더는 유저 에이전트에서 서버에 인증정보를 전달하기 위해 사용됩니다.
 
 Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
@@ -231,3 +234,18 @@ Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
 ### LocalStorage
 
 LocalStorage는 브라우저에 데이터를 저장하기 위해 사용됩니다. localStorage는 저장된 데이터의 만료기간이 없고, key와 value는 항상 문자열로 저장됩니다.
+
+### Emotion
+
+CSS in Javascript 자바스크립트를 이용해서 css를 표현하는 라이브러리.
+
+- styled-components를 이용해서도 할 수 있어요.
+
+## PureComponents
+
+- 퓨어 컴포넌트는 클래스 베이스를 기반으로 만들어진 컴포넌트를 만들때 사용하는 방법입니다.
+- 퓨어컴포넌트란?
+  - props로 내려주는 값으로만 그려지고 상태를 관리하지 않는 컴포넌트!
+  - jsx에서 가상돔을 업데이트 하는 것이 싫다. 캐쉬 하는 것 처럼하고 싶다.
+  - React.memo with useCallback을 사용하여 변화를 캐싱해준다.
+    - props가 변경 되지 않는 다면, 가상돔 트리가 바뀌지 않도록 처리한다.

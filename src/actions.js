@@ -4,6 +4,7 @@ import {
   fetchRestaurants,
   postLogin,
 } from './services/api';
+import { saveItem } from './services/storage';
 
 export function setRegions(regions) {
   return {
@@ -90,9 +91,11 @@ export function requestLogin() {
     } = getState();
     try {
       const accessToken = await postLogin({ email, password });
+      saveItem('accessToken', accessToken);
       dispatch(setAccessToken(accessToken));
     } catch (error) {
       //error 처리
+      console.error('---> ', error);
     }
   };
 }

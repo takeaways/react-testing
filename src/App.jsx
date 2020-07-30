@@ -6,7 +6,16 @@ import HomePage from './HomePage';
 import AbountPage from './AboutPage';
 import NotFoundPage from './NotFoundPage';
 import LoginPage from './LoginPage';
+import { loadItem } from './services/storage';
+import { useDispatch } from 'react-redux';
+import { setAccessToken } from './actions';
 export default function App() {
+  const dispatch = useDispatch();
+  const accessToken = loadItem('accessToken');
+  if (accessToken) {
+    dispatch(setAccessToken(accessToken));
+  }
+
   return (
     <>
       <nav>

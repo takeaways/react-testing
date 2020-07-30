@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import LoginForm from './LoginForm';
@@ -10,13 +10,16 @@ export default function LoginFormContainer() {
   const { email, password } = useSelector(get('loginFields'));
   const accessToken = useSelector(get('accessToken'));
 
-  function handleSubmit() {
+  const handleSubmit = useCallback(() => {
     dispatch(requestLogin());
-  }
+  }, [dispatch]);
 
-  function handleChange({ name, value }) {
-    dispatch(changeLoginField({ name, value }));
-  }
+  const handleChange = useCallback(
+    ({ name, value }) => {
+      dispatch(changeLoginField({ name, value }));
+    },
+    [dispatch]
+  );
 
   return (
     <>

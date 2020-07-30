@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default function AbountPage() {
+function AbountPage() {
   return (
     <div>
       <h1>About...</h1>
     </div>
   );
 }
+
+export default React.memo(AbountPage);
