@@ -4,7 +4,7 @@
 
 ## 1. 개발 환경 구축
 
-- DSL (Domain Specific Language)
+- DSL(Domain Specific Language)
 - 설치 및 실행
   ```bash
   //live-reloading
